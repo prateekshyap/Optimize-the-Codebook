@@ -113,7 +113,11 @@ double ** KMeans(double ** universe, int universeSize, double ** codebook, int K
 	{
 	++iterationCount;
 	totalDistortion = 0;
-
+	for (i = 0; i < K; ++i)
+		bucketSize[i] = 0;
+	for (i = 0; i < K; ++i)
+		for (j = 0; j < p; ++j)
+			bucketSum[i][j] = 0;
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	/*classification*/
 	for (i = 0; i < universeSize; ++i) //for each vector in the universe
@@ -262,4 +266,3 @@ int _tmain(int argc, _TCHAR* argv[])
 	
 	return 0;
 }
-
